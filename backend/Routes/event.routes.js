@@ -9,6 +9,7 @@ const GetUpcomingEvent = require('../controller/UpcomingEvent.controller')
 const GetCompletedEvent = require('../controller/getCompletedEvent.controller')
 const GetParticipatedEventController = require('../controller/getParticipatedEvent')
 const RegisterEventController = require('../controller/register.controller')
+const getParticipateeListController = require('../controller/getParticipedStudents.controller')
 const eventRouter=express.Router()
 
 eventRouter.use(bodyParser.urlencoded({ extended: false }))
@@ -20,5 +21,5 @@ eventRouter.get('/getUpcomingEvent',cors(), GetUpcomingEvent)
 eventRouter.post('/createEvent',cors(), CreateEvent) 
 eventRouter.post('/register/:userId',cors(), RegisterEventController) 
 eventRouter.get('/participatedEvent/:userId',cors(), GetParticipatedEventController) 
-
+eventRouter.get('/participateeList', cors(), getParticipateeListController)
 module.exports=eventRouter

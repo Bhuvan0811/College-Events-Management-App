@@ -1,6 +1,6 @@
 const { default: axios } = require('axios');
 const mongoose = require('mongoose')
-
+const userModal = require("./user.modal")
 
 const EventSchema = mongoose.Schema({
     eventName: {
@@ -35,6 +35,10 @@ const EventSchema = mongoose.Schema({
         type: Number,
         required:true
     },
+    participateeList:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "userModal",
+    }],
     eventImage: {
         type: String,
         default:"https://source.unsplash.com/random/520x600/?Event,party,coding,sports"
